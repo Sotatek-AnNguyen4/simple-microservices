@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+  application:
+    name: user-service
+   
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mydatabase
+      username: deamnguyen
+      password: 1
