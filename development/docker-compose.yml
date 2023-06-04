@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+  postgresql:
+    image: postgres:latest
+    container_name: postgresql
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: deamnguyen
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: mydatabase
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+
+  consul:
+    image: consul:latest
+    container_name: consul
+    restart: unless-stopped
+    ports:
+      - 8500:8500
+
+volumes:
+  mongodb_data:
+  postgresql_data:
